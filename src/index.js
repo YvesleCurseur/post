@@ -1,17 +1,43 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import ReactDOM from 'react-dom';
+import './style/App.css';
+import CommentDetail from './CommentDetail';
+import ApprovalCard from './ApprovalCard';
+import { faker } from "@faker-js/faker";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
+const App = () => {
+    return (
+        <div className='ui container comments'>
+                {/* 
+            Etant props.children est juste remplacé par le Are you sure? 
+            <ApprovalCard> Are you sure? </ApprovalCard>
+                */}
+            <ApprovalCard>
+                <CommentDetail 
+                    author="Sam" 
+                    time="Aujourd'hui à 18H00"  
+                    text="You got this !" 
+                    pic={faker.image.avatar()}  
+                />
+            </ApprovalCard>
+            <ApprovalCard>
+                <CommentDetail 
+                    author="Ronny" 
+                    time="Aujourd'hui à 07H00" 
+                    text="Nice post dude !" 
+                    pic={faker.image.avatar()} 
+                />
+            </ApprovalCard>
+            <ApprovalCard>
+                <CommentDetail 
+                    author="Hermione" 
+                    time="Hier à 15H00"  
+                    text="Lot of informations here." 
+                    pic={faker.image.avatar()} 
+                />
+            </ApprovalCard>
+        </div>
+        );
+};
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+ReactDOM.render(<App />, document.querySelector('#root'));
