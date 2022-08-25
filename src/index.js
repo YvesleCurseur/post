@@ -1,6 +1,6 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './style/App.css';
+import React from 'react'
+import ReactDOM from 'react-dom'
+import './style/App.css'
 import CommentDetail from './CommentDetail';
 import ApprovalCard from './ApprovalCard';
 import { faker } from "@faker-js/faker";
